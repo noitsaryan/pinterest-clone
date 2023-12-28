@@ -14,7 +14,7 @@ export const validateUser = async () => {
     }
 }
 
-export const getUserData = () => {
+export const getUserData = async () => {
     try {
         const auth1 = cookies().get("pintrest-user")?.value
         const jwt = auth1 && decode(auth1);
