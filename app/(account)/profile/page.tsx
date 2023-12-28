@@ -11,7 +11,7 @@ async function page({ searchParams }: { searchParams: { [key: string]: string } 
   return (
     <section className="py-[8vw]">
       <div className="flexCenter flex-col gap-2 ">
-        <Image src={data.data.profileImage} className='rounded-full aspect-square object-cover' alt="profileImageUser" width={160} height={160} />
+        <Image src={data.data?.profileImage || ""}  className='rounded-full aspect-square object-cover' alt="profileImageUser" width={160} height={160} />
         <h1 className='text-3xl font-semibold'> {data.data.name} </h1>
         <p className="flexCenter gap-2">
           <Image src="/brands/pintrest.png" alt="logo " width={20} height={20} className="grayscale" />
