@@ -22,7 +22,7 @@ async function page({ searchParams }: { searchParams: { [key: string]: string } 
           }
         </p>
         <p className='max-w-sm text-center'> {
-          data.data && <Link href={data.data && data.data?.website} className='font-semibold' target="_blank"> {url && url.hostname} </Link>
+          data && <Link href={data.data && data.data?.website} className='font-semibold' target="_blank"> {url && url.hostname} </Link>
 
         } {data.data?.about} </p>
         <Link href="/profile/edit" className="bg-red-600 hover:opacity-80 px-4 py-2 text-white rounded-full "> Edit Profile </Link>

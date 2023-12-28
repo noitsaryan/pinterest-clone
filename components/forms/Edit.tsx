@@ -7,6 +7,7 @@ import toast from 'react-hot-toast';
 import { UploadButton } from '@/utils/uploadthing';
 
 function Edit({ data }: { data: { [key: string]: string } }) {
+    if(!data) return;
     const [image, setImage] = useState(data.profileImage);
     const [formData, setFormData] = useState({
         name: data.name || '',
@@ -46,6 +47,7 @@ function Edit({ data }: { data: { [key: string]: string } }) {
     };
 
     return (
+        data &&
         <form action={handleSubmit} className='flex flex-col styleInput gap-2 w-full px-8 mx-auto '>
             <div className='flexCenter gap-4' >
                 <Image alt='profile-image' className='rounded-full aspect-square object-cover' src={data.profileImage} width={150} height={150} />
