@@ -5,7 +5,7 @@ async function page() {
     const { data } = await fetchUserData();
     if(!data) return;
     return (
-        <section>
+        data && <section>
             <Edit data={data} />
         </section>
     )

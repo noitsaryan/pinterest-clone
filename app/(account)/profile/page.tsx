@@ -9,10 +9,10 @@ async function page({ searchParams }: { searchParams: { [key: string]: string } 
   const url = data.data.website && new URL(data.data?.website)
   if(!data) return;
   return (
-    <section className="py-[8vw]">
+    data && <section className="py-[8vw]">
       <div className="flexCenter flex-col gap-2 ">
         {
-          data.data && <Image src={data.data.profileImage} className='rounded-full aspect-square object-cover' alt="profileImageUser" width={160} height={160} />
+          data && <Image src={data.data.profileImage} className='rounded-full aspect-square object-cover' alt="profileImageUser" width={160} height={160} />
         }
         <h1 className='text-3xl font-semibold'> {data.data.name} </h1>
         <p className="flexCenter gap-2">
@@ -22,8 +22,7 @@ async function page({ searchParams }: { searchParams: { [key: string]: string } 
           }
         </p>
         <p className='max-w-sm text-center'> {
-          data && <Link href={data.data && data.data?.website} className='font-semibold' target="_blank"> {url && url.hostname} </Link>
-
+          data && <Link href={data && data.data?.website} className='font-semibold' target="_blank"> {url && url.hostname} </Link>
         } {data.data?.about} </p>
         <Link href="/profile/edit" className="bg-red-600 hover:opacity-80 px-4 py-2 text-white rounded-full "> Edit Profile </Link>
         <div className='flex items-center gap-5 my-7'>
