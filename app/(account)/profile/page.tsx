@@ -7,7 +7,7 @@ import Link from "next/link";
 async function page({ searchParams }: { searchParams: { [key: string]: string } }) {
   const data = await getUserData();
   const url = data.data.website && new URL(data.data?.website)
-
+  if(!data) return;
   return (
     <section className="py-[8vw]">
       <div className="flexCenter flex-col gap-2 ">
