@@ -4,8 +4,8 @@ import Saved from "@/components/pages/account/Saved";
 import Image from "next/image"
 import Link from "next/link";
 
-async function page({ searchParams }: { searchParams: { [key: string]: string } }) {
-  const data = await getUserData();
+function page({ searchParams }: { searchParams: { [key: string]: string } }) {
+  const data = getUserData();
   const url = data.data.website && new URL(data.data?.website)
 
   return (
