@@ -102,7 +102,19 @@ export const fetchUserData = async () => {
         await connectDB();
         const user = await User.findOne({ email: data.email })
         if (!user) return { message: 'User does not exists', success: false };
-        return { message: 'User fetched success', data: user, success: true }
+        return {
+            message: 'User fetched success', data: {
+                _id: user._id.toString(),
+                name: user.name,
+                username: user.username,
+                email: user.email,
+                profileImage: user.profileImage,
+                about: user.about,
+                birthday: user.birthday,
+                gender: user.gender,
+                website: user.website
+            }, success: true
+        }
     } catch (error: any) {
         return error.message;
     }
